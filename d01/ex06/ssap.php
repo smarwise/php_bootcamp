@@ -15,7 +15,6 @@ while ($i < $argc)
 	$array[$i] = $argv[$i];
 	$i++;
 }
-print_r($array);
 $i = 0;
 while ($i < $argc)
 {
@@ -23,9 +22,12 @@ while ($i < $argc)
 	$result = $result. " ";
 	$i++;
 }
-echo "$result";
 $all = ft_split($result);
-print_r($all);
+$i = 0;
 sort($all);
-print_r($all);
+while ($all[$i])
+{
+	echo ($all[$i]."\n");
+	$i++;
+}
 ?>
