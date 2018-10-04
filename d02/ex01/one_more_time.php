@@ -50,22 +50,17 @@ if ($argc == 1)
     exit;
 $datenow = $argv[1];
 $datenow = frtoeng($datenow);
+
+
+$test = preg_split('/[\s]+/', $datenow);
+
 $i = checkformat($datenow);
 if (!$i)
 {
     echo "Wrong Format\n";
     exit;
 }
-$time = strtotime("$datenow");
-preg_match("/[0-9][0-9]:[0-9][0-9]:[0-9][0-9]/", "$datenow", $array);
-//$sec = $array[0];
-//$result = strtotime($sec);
-//echo "$result";
-$n = 0;
-while (is_numeric($datenow[$n]) === FALSE)
-    $n++;
-$string = substr($datenow, $n);
-echo "$string\n";
-$time = strtotime($string);
+date_default_timezone_set("Europe/Paris");
+$time = strtotime($datenow);
 echo "$time";
 ?>
