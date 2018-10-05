@@ -1,25 +1,21 @@
-#!/usr/bin/php
 <?PHP
-//set cookie
-$action = $_GET['action'];
 
-echo "ACTION!!!! = $action";
-if ($action === "set")
+$cookie_name = $_GET["name"];
+$cookie_value = $_GET["value"];
+if ($_GET["action"] == "set")
 {
-	$cookie_name = $_GET['name'];
-	$cookie_value = $_GET['value'];
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30));
+	setcookie($cookie_name, $cookie_value, time() + 3600);
 }
-else if ($action === "get")
+else if ($_GET["action"] == "get")
 {
-	$cookie_name = $GET['name'];
-	if(($_COOKIE[$cookie_name]))
-		echo "$_COOKIE[$cookie_name]";
+	 if($_COOKIE[$_GET['name']])
+		echo $_COOKIE[$_GET["name"]];
 }
-else if ($action === "del")
+else if ($_GET["action"] == "del")
 {
-	$cookie_name = $_GET['name'];
-	$cookie_value = $_GET['value'];
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30) - ((86400 * 30) - 1), '/');
+	setcookie($cookie_name, $cookie_value,  -1);
+}
+else
+{
 }
 ?>
