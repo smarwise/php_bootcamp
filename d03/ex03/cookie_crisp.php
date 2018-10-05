@@ -3,11 +3,12 @@
 //set cookie
 $action = $_GET['action'];
 
+echo "ACTION!!!! = $action";
 if ($action === "set")
 {
 	$cookie_name = $_GET['name'];
 	$cookie_value = $_GET['value'];
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/');
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30));
 }
 else if ($action === "get")
 {
