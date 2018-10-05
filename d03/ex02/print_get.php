@@ -8,6 +8,6 @@ foreach ($array as $argument => $value)
 {
 //	echo ($array[$i]);
 //	$i++;
-	echo "$name : $value \n";
+	echo "$argument : $value \n";
 }
 ?>
