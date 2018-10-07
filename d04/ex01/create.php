@@ -16,11 +16,11 @@ $accounts = array();
 
  if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] === "OK")
  {
-	if (!file_exists("private/"))
-		mkdir("private");
-	if (!file_exists("private/passwd")) 
-		   file_put_contents("private/passwd", null);
-	$accounts = unserialize(file_get_contents("private/passwd"));
+	if (!file_exists("../private/"))
+		mkdir("../private");
+	if (!file_exists("../private/passwd")) 
+		   file_put_contents("../private/passwd", null);
+	$accounts = unserialize(file_get_contents("../private/passwd"));
 	if (account_exists($accounts, $_POST["login"]) == 1)
 	{
 		echo "ERROR\n";
@@ -29,7 +29,7 @@ $accounts = array();
 	else
 	{
 		$data[] = ['login' => $_POST['login'], 'passwd' => hash('whirlpool', $_POST['passwd'])];
-		file_put_contents("private/passwd", serialize($data));
+		file_put_contents("../private/passwd", serialize($data));
 		echo "OK\n";
 	}
  }
