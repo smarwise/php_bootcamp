@@ -1,0 +1,11 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex Class offers a coordinate encapsulation and
+provides reading and writing assessors for the corresponding attributes.
+
+ The Vertex Class possesses private attributes to represent the five characteristics:
+  x - Its x axis coordinate
+  y - Itsy axis coordinate
+  z = Its z depth coordinate
+  w - A homogeneous coordinates.
+  color - A color represented by an instance of the Color Class from ex00
+---------------------------------------------------------------------- Vertex ->

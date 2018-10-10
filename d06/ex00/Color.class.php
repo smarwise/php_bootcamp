@@ -7,14 +7,14 @@ class Color
 	public $blue;
 	public static $verbose = false;
 
-	function __construct($array)
+	public function __construct($array)
 	{
 		if (isset($array['red']) && isset($array['green']) && isset($array['blue']))
 		{
-			$red = intval($array['red']);
-			$green = intval($array['green']);
-			$blue = intval($array['blue']);
-		}                                                                                                                                                     
+			$this->red = intval($array['red']);
+			$this->green = intval($array['green']);
+			$this->blue = intval($array['blue']);
+		}
 		else if (isset($array['rgb']))
 		{
 			$rgb = intval($array['rgb']);
@@ -23,10 +23,10 @@ class Color
 			$this->blue = $rgb & 255;
 		}
 		if (Self::$verbose)
-			echo "Color(red: $red, green: $green, blue: $blue) constructed."."\n";
+			echo "Color(red: $this->red, green: $this->green, blue: $this->blue) constructed."."\n";
 	}
 
-	function sub($rhs)
+	public function sub($rhs)
 	{
 		$newcolor = array(
 			'red' => $this->red - $rhs->red,
@@ -36,7 +36,7 @@ class Color
 			return (new Color($newcolor));
 	}
 
-	function add($rhs)
+	public function add($rhs)
 	{
 		$newcolor = array(
 		"red" => $this->red + $rhs->red,
@@ -46,7 +46,7 @@ class Color
 		return (new Color($newcolor));
 	}
 
-	function mult($f)
+	public function mult($f)
 	{
 		$newcolor = array(
 			"red" => $this->red * $f,
@@ -64,7 +64,7 @@ class Color
 	function __destruct()
 	{
 		if (Self::$verbose)
-			echo "Color(red: $red, green: $green, blue: $blue) destructed."."\n";
+			echo "Color(red: $this->red, green: $this->green, blue: $this->blue) destructed."."\n";
 	}	
 	static function doc()
 	{
@@ -74,28 +74,3 @@ class Color
 	}
 }
 ?>
-
-
-struct Color 
-{
-	int red;
-	int green;
-	#int blue;
-}
-
-#Color add(Color lhs , Color rhs)
-{
-
-	Color ret;
-
-	ret.blue = lhs.blue + rhs.blue;
-	return ret;
-}
-
-Color a;
-Color b;
-
-a.blue = 8;
-b.blue = 7;
-
-Color a = add(a,b);
