@@ -38,8 +38,32 @@
 				else
 					color++;
 			}
+			function deflate()
+			{
+				var ball = document.getElementById("balloon");
+				if (ball.style.width <= 200 + "px" && ball.style.height <= 200 + "px")
+				 {
+					ball.style.width = 200 + "px";
+					ball.style.height = 200 + "px";
+				 }
+				else
+				{	 
+					ball.style.width =  ball.offsetWidth - 5 + "px";
+					ball.style.height =  ball.offsetHeight - 5 + "px";
+				}
+				if (color == 1)
+						 ball.style.backgroundColor = "red";
+					 else if (color == 2)
+						 ball.style.backgroundColor = "green";
+					 else
+						 ball.style.backgroundColor = "blue";
+				if (color == 1)
+					color = 3;
+				else
+					color--;
+			}
 	</script>
 	<body>
-		<div id="balloon" onclick="expand()" onmouseleave=""></div>
+		<div id="balloon" onclick="expand()" onmouseleave="deflate()"></div>
 	</body>
 </html>
