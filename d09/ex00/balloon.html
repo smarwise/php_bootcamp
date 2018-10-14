@@ -1,8 +1,40 @@
 <html>
 	<head>
-		<title>Javascript</title>
+		<title>Balloon</title>
 	</head>
+	<style>
+		#balloon{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 50%;
+		}
+	</style>
+	<script>
+			function expand()
+			{
+				var ball = document.getElementById("balloon");
+				 if (ball.style.width == 420 + "px" && ball.style.height == 420 + "px")
+				 {
+					ball.style.width = 200 + "px";
+					ball.style.height = 200 + "px";
+				 }
+				else
+				{
+					ball.style.width =  ball.offsetWidth + 10 + "px";
+					ball.style.height =  ball.offsetHeight + 10 + "px";
+				}
+				// if (i < 3)
+				// i++;
+				// else
+					// i = 1;
+			}
+			// function redraw()
+			// {
+				// if (i == 1)
+			// }
+	</script>
 	<body>
-		<span>Hello World</span>
+		<div id="balloon" onclick="expand()" onmouseleave=""></div>
 	</body>
 </html>
