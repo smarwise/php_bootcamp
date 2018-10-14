@@ -7,6 +7,7 @@ $fd = fopen("/var/run/utmpx", 'r');
 while($data = fread($fd, 628))
 {
    $new = unpack("a256ut_user/a4ut_id/a32ut_line/iut_pid/iut_type/I2ut_time",$data);
+   print_r($new);
    if($new['ut_type'] == 7)
    {
        array_push($array, $new);
